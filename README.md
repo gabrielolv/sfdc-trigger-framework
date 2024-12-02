@@ -169,11 +169,11 @@ Click New Custom Metadata Type and fill out the details:
 Save the metadata type.
 
 2.	Add a Checkbox field to toggle activation:
-  
+ 
   •	Field Label: Active
 
   •	API Name: Active__c
-  
+
   •	Default Value: Checked (true).
 
 
