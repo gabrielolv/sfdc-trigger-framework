@@ -165,11 +165,12 @@ Click New Custom Metadata Type and fill out the details:
 
 	•	Visibility: Set to Public.
 
+
 Save the metadata type.
 
 2.	Add a Checkbox field to toggle activation:
-
-	•	Field Label: Active
+  
+  •	Field Label: Active
 
 	•	API Name: Active__c
 
@@ -184,7 +185,7 @@ Save the metadata type.
 	•	Trigger Name: Name of the trigger (e.g., Account_Trigger).
 
 	•	Active: Set to true to activate the trigger or false to deactivate it.
-  
+
 
 ![alt text](image-1.png)
 
