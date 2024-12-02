@@ -161,7 +161,7 @@ Click New Custom Metadata Type and fill out the details:
 
 	•	Plural Label: Run Triggers
 
-	•	Object Name: Run_Triggers
+	•	Object Name: Run_Trigger
 
 	•	Visibility: Set to Public.
 
