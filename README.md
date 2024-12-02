@@ -153,24 +153,23 @@ In Salesforce, using Custom Metadata is a best practice to control trigger execu
 
 1. Create Custom Metadata
 
-	1.	Go to Setup > Custom Metadata Types.
-	2.	Click New Custom Metadata Type and fill out the details:
+Go to Setup > Custom Metadata Types.
+Click New Custom Metadata Type and fill out the details:
 	•	Label: Run Trigger
 	•	Plural Label: Run Triggers
 	•	Object Name: Run_Triggers
 	•	Visibility: Set to Public.
-	3.	Save the metadata type.
+Save the metadata type.
 
-  	2.	Add a Checkbox field to toggle activation:
+2.	Add a Checkbox field to toggle activation:
 	•	Field Label: Active
 	•	API Name: Active__c
 	•	Default Value: Checked (true).
 
 ![alt text](image.png)
 
-
-	1.	Go to Custom Metadata Types > Run Trigger > Manage Records.
-	2.	Create a record for each trigger you want to control:
+3.  Go to Custom Metadata Types > Run Trigger > Manage Records.
+4.	Create a record for each trigger you want to control:
 	•	Trigger Name: Name of the trigger (e.g., AccountTrigger).
 	•	Active: Set to true to activate the trigger or false to deactivate it.
 
