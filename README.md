@@ -3,8 +3,6 @@
 [![npm version](https://badge.fury.io/js/sfdc-trigger-framework.svg)](https://badge.fury.io/js/sfdc-trigger-framework)
 [![Maintainability](https://api.codeclimate.com/v1/badges/eeeae5a492e34feace99/maintainability)](https://codeclimate.com/github/kevinohara80/sfdc-trigger-framework/maintainability)
 
-I know, I know...another trigger framework. Bear with me. ;)
-
 ## Overview
 
 Triggers should (IMO) be logicless. Putting logic into your triggers creates un-testable, difficult-to-maintain code. It's widely accepted that a best-practice is to move trigger logic into a handler class.
@@ -148,3 +146,42 @@ Here are all of the methods that you can override. All of the context possibilit
 * `afterUpdate()`
 * `afterDelete()`
 * `afterUndelete()`
+
+## Custom Metadata to Deactivate Triggers in Production
+
+In Salesforce, using Custom Metadata is a best practice to control trigger execution without modifying the code. This approach is ideal for environments like production, where direct code changes can disrupt workflows. Below is a step-by-step guide to implement a solution that uses custom metadata to deactivate triggers.
+
+1. Create Custom Metadata
+
+	1.	Go to Setup > Custom Metadata Types.
+	2.	Click New Custom Metadata Type and fill out the details:
+	•	Label: Run Trigger
+	•	Plural Label: Run Triggers
+	•	Object Name: Run_Triggers
+	•	Visibility: Set to Public.
+	3.	Save the metadata type.
+
+  	2.	Add a Checkbox field to toggle activation:
+	•	Field Label: Active
+	•	API Name: Active__c
+	•	Default Value: Checked (true).
+
+![alt text](image.png)
+
+
+	1.	Go to Custom Metadata Types > Run Trigger > Manage Records.
+	2.	Create a record for each trigger you want to control:
+	•	Trigger Name: Name of the trigger (e.g., AccountTrigger).
+	•	Active: Set to true to activate the trigger or false to deactivate it.
+
+![alt text](image-1.png)
+
+![alt text](image-2.png)
+
+```java
+trigger AccountTrigger on Account (before insert, after insert, before update, after update, before delete, after delete, after undelete) {
+    if(Run_Triggers__mdt.getInstance('Account_Trigger')?.Active__c){
+        new AccountTriggerHandler().run();
+    }   
+}
+```
