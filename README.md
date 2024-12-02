@@ -172,9 +172,9 @@ Save the metadata type.
   
   •	Field Label: Active
 
-	•	API Name: Active__c
-
-	•	Default Value: Checked (true).
+  •	API Name: Active__c
+  
+  •	Default Value: Checked (true).
 
 
 ![alt text](image.png)
